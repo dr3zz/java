@@ -110,5 +110,5 @@ public static ArrayList<String> printCard (String cardColor, String card)
 			}
 		return array;
 	}
-}
+
 
