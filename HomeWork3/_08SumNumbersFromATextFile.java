@@ -14,10 +14,23 @@ public class _08SumNumbersFromATextFile {
 
 			while (true) {
 				String line = br.readLine();
+				boolean check = false;
+				
 				if (line == null) {
 					break;
 				}
-				sum = sum + Integer.parseInt(line);
+				try {
+					
+					Integer.parseInt(line);
+					check = true;
+					
+				} catch (Exception e) {
+					check = false;
+				}
+				if (check == true) {
+					sum = sum + Integer.parseInt(line);
+				}
+				
 			}
 			System.out.println(sum);
 
