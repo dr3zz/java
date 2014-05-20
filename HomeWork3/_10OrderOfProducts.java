@@ -46,7 +46,14 @@ public class _10OrderOfProducts {
 			System.out.println("Error. File does not exist");
 
 		}
+		output(output);
 
+		
+		
+
+	}
+
+	private static void output(BigDecimal output) {
 		try {
 
 			File file = new File("e:/temp/Output.txt");
@@ -67,7 +74,6 @@ public class _10OrderOfProducts {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// System.out.println(output);
-
+		 System.out.println(output);
 	}
 }
