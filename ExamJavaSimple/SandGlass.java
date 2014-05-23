@@ -7,39 +7,32 @@ public class SandGlass {
 
 		Scanner input = new Scanner(System.in);
 		int n = input.nextInt();
-
-//		char[] arrCh = new char[n];
-//		Arrays.fill(arrCh, '*');
-//		String result = new String(arrCh);
-//		System.out.println(result);
-		int inside = n/2;
+		int inside = n / 2;
 		int outside = 0;
- 		for (int i = 0; i < n /2 + 1 ; i++) {
- 			
- 			
- 			char[] leftSide = new char[inside];
- 			Arrays.fill(leftSide, '*');
- 			char[] rightSide = new char[outside];
- 			Arrays.fill(rightSide, '.');
-			String temp = new String(rightSide) + new String(leftSide)
-			+"*" + new String(leftSide) + new String(rightSide) ;
+		for (int i = 0; i < n / 2 + 1; i++) {
+
+			char[] arrInside = new char[inside];
+			Arrays.fill(arrInside, '*');
+			char[] arrOutside = new char[outside];
+			Arrays.fill(arrOutside, '.');
+			String temp = new String(arrOutside) + new String(arrInside) + "*"
+					+ new String(arrInside) + new String(arrOutside);
 			System.out.println(temp);
 			inside--;
- 			outside++;
+			outside++;
 		}
- 		inside++;
- 		outside--;
- 		for (int i = 0; i < n/2; i++) {
- 			inside++;
- 			outside--;
- 			char[] leftSide = new char[inside];
- 			Arrays.fill(leftSide, '*');
- 			char[] rightSide = new char[outside];
- 			Arrays.fill(rightSide, '.');
-			String temp = new String(rightSide) + new String(leftSide)
-			+"*" + new String(leftSide) + new String(rightSide) ;
+		inside++;
+		outside--;
+		for (int i = 0; i < n / 2; i++) {
+			inside++;
+			outside--;
+			char[] arrInside = new char[inside];
+			Arrays.fill(arrInside, '*');
+			char[] arrOutside = new char[outside];
+			Arrays.fill(arrOutside, '.');
+			String temp = new String(arrOutside) + new String(arrInside) + "*"
+					+ new String(arrInside) + new String(arrOutside);
 			System.out.println(temp);
 		}
-//		System.out.println(result);
 	}
 }
