@@ -1,0 +1,62 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
+public class GenerateAPDFbyExternalLibrary {
+
+	public static void main(String[] args) throws DocumentException,
+			IOException {
+
+		Document doc = new Document();
+		PdfWriter.getInstance(doc, new FileOutputStream("e:/temp/1.pdf"));
+		doc.open();
+		BaseFont baseFont = BaseFont.createFont("C:/Windows/Fonts/arial.ttf",
+				BaseFont.IDENTITY_H, true);
+		Font black = new Font(baseFont, 60f, 0, BaseColor.BLACK);
+		Font red = new Font(baseFont, 60f, 0, BaseColor.RED);
+		PdfPTable table = new PdfPTable(4);
+		table.setWidthPercentage(90);
+		table.getDefaultCell().setFixedHeight(150);
+		for (String temp : deckOfCardsArrayList())
+
+		{
+			if (temp.contains("\u2663"))
+				table.addCell(new Paragraph(temp, black));
+			if (temp.contains("\u2660"))
+				table.addCell(new Paragraph(temp, black));
+			if (temp.contains("\u2665"))
+				table.addCell(new Paragraph(temp, red));
+			if (temp.contains("\u2666"))
+				table.addCell(new Paragraph(temp, red));
+		}
+		doc.add(table);
+		doc.close();
+
+	}
+
+	public static ArrayList<String> deckOfCardsArrayList()
+
+	{
+		ArrayList<String> deckOfCardsArrayList = new ArrayList<String>();
+
+		String[] cardColor = { "\u2663", "\u2666", "\u2665", "\u2660" };
+		String[] cardNumber = { "2", "3", "4", "5", "6", "7", "8", "9", "10",
+				"J", "Q", "K", "A" };
+		for (String color : cardColor) {
+			for (String card : cardNumber) {
+				deckOfCardsArrayList.add(card + color);
+			}
+		}
+		return deckOfCardsArrayList;
+	}
+
+}
